@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="lib/javapoet.jar" sourcepath="/javapoet/src/main/java"/>
+	<classpathentry kind="lib" path="lib/json-20180813.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/javapoet"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
