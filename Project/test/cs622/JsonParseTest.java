@@ -8,7 +8,9 @@ class JsonParseTest {
 
 	@Test
 	void test() {
+
 		TestClass testClass = new TestClass();
+
 		assertTrue(testClass.testReturn() == 1);
 	}
 

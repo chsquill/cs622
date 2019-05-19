@@ -1,12 +1,15 @@
 package cs622;
 
+import org.junit.jupiter.api.Test;
+
 import cs622.document.Document;
 import cs622.document.JsonDocument;
 import cs622.generator.GopherJGenerator;
 
-public class Main {
+class GopherJGeneratorTest {
 
-	public static void main(String[] args) {
+	@Test
+	void test() {
 
 		GopherJGenerator gen = new GopherJGenerator();
 

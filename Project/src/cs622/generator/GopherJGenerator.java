@@ -9,12 +9,16 @@ import com.squareup.javapoet.TypeSpec;
 
 import cs622.field.Component;
 
-public class GopherJGenererator {
+public class GopherJGenerator {
 
+	/**
+	 * Builds a Java class file from the provided components.
+	 */
 	public void generate(Component[] components) {
 
 		// generate class
-		TypeSpec.Builder classBuilder = TypeSpec.classBuilder("GopherJDto").addModifiers(Modifier.PUBLIC);
+		TypeSpec.Builder classBuilder = TypeSpec.classBuilder("GopherJDto").addModifiers(Modifier.PUBLIC)
+				.addJavadoc("GopherJDto - This class was auto generated.");
 
 		// generate fields
 		for (Component component : components) {
@@ -35,15 +39,12 @@ public class GopherJGenererator {
 			classBuilder.addMethod(setMethod);
 		}
 
-		TypeSpec mock = classBuilder.build();
+		TypeSpec tyepSpec = classBuilder.build();
 
-		JavaFile javaFile = JavaFile.builder("gopherj", mock).build();
+		JavaFile javaFile = JavaFile.builder("gopherj", tyepSpec).build();
 
-		try {
-			System.out.println(javaFile.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(javaFile.toString());
+
 	}
 
 	private String generateAccessorName(String name) {

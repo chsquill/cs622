@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-import cs622.Generatable;
 import cs622.field.ArrayComponent;
 import cs622.field.Component;
 import cs622.field.DoubleComponent;
@@ -12,14 +11,14 @@ import cs622.field.IntegerComponent;
 import cs622.field.LongComponent;
 import cs622.field.StringComponent;
 
-public class JsonDocument extends Document implements Generatable {
+public class JsonDocument extends Document {
 
 	@Override
 	public void parse(String json) {
 
 		ArrayList<Component> comps = new ArrayList<>();
 
-		System.out.println(json);
+		// System.out.println(json);
 
 		try {
 
@@ -31,7 +30,7 @@ public class JsonDocument extends Document implements Generatable {
 
 				Object ob = o.get(string);
 
-				System.out.println(ob.getClass());
+				// System.out.println(ob.getClass());
 
 				switch (ob.getClass().getTypeName()) {
 
@@ -61,12 +60,6 @@ public class JsonDocument extends Document implements Generatable {
 		}
 
 		setComponents(comps.toArray(new Component[comps.size()]));
-
-	}
-
-	@Override
-	public void generate(Component[] components) {
-		// TODO Auto-generated method stub
 
 	}
 

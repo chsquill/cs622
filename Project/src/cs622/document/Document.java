@@ -3,10 +3,9 @@ package cs622.document;
 import java.io.File;
 import java.net.URL;
 
-import cs622.Generatable;
 import cs622.field.Component;
 
-public abstract class Document implements Generatable {
+public abstract class Document {
 
 	protected Component[] components;
 
