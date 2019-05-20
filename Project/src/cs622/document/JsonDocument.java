@@ -13,6 +13,16 @@ import cs622.field.StringComponent;
 
 public class JsonDocument extends Document {
 
+	private String wadlUrl;
+
+	public JsonDocument() {
+		this("No WADL Url specified.");
+	}
+
+	public JsonDocument(String wadlUrl) {
+		this.setWadlUrl(wadlUrl);
+	}
+
 	@Override
 	public void parse(String json) {
 
@@ -61,6 +71,14 @@ public class JsonDocument extends Document {
 
 		setComponents(comps.toArray(new Component[comps.size()]));
 
+	}
+
+	public String getWadlUrl() {
+		return wadlUrl;
+	}
+
+	public void setWadlUrl(String wadlUrl) {
+		this.wadlUrl = wadlUrl;
 	}
 
 }

@@ -7,6 +7,9 @@ import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
 
+import cs622.Generatable;
+import cs622.document.JsonDocument;
+import cs622.document.XmlDocument;
 import cs622.field.Component;
 
 public class GopherJGenerator {
@@ -14,20 +17,22 @@ public class GopherJGenerator {
 	/**
 	 * Builds a Java class file from the provided components.
 	 */
-	public void generate(Component[] components) {
+	public void generate(Generatable generatable) {
 
 		// generate class
 		TypeSpec.Builder classBuilder = TypeSpec.classBuilder("GopherJDto").addModifiers(Modifier.PUBLIC)
 				.addJavadoc("GopherJDto - This class was auto generated.");
 
 		// generate fields
-		for (Component component : components) {
+		for (Component component : generatable.getComponents()) {
+
 			classBuilder
 					.addField(FieldSpec.builder(component.getType(), component.getName(), Modifier.PRIVATE).build());
 		}
 
 		// generate methods
-		for (Component component : components) {
+		for (Component component : generatable.getComponents()) {
+
 			MethodSpec getMethod = MethodSpec.methodBuilder("get" + generateAccessorName(component.getName()))
 					.addStatement(String.format("return %s", component.getName())).addModifiers(Modifier.PUBLIC)
 					.returns(component.getType()).build();
@@ -44,6 +49,12 @@ public class GopherJGenerator {
 		JavaFile javaFile = JavaFile.builder("gopherj", tyepSpec).build();
 
 		System.out.println(javaFile.toString());
+
+		if (generatable instanceof JsonDocument) {
+			System.out.println("WADL file : " + ((JsonDocument) generatable).getWadlUrl());
+		} else if (generatable instanceof XmlDocument) {
+			System.out.println("WSDL file : " + ((XmlDocument) generatable).getWsdlUrl());
+		}
 
 	}
 
