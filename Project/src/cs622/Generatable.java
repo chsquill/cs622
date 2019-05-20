@@ -1,9 +1,9 @@
 package cs622;
 
-import cs622.field.Component;
+import cs622.component.Component;
 
 public interface Generatable {
 
-	public void generate(Component[] components);
+	public Component[] getComponents();
 
 }

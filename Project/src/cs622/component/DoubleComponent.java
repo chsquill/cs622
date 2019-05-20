@@ -1,4 +1,4 @@
-package cs622.field;
+package cs622.component;
 
 public class DoubleComponent extends Component {
 

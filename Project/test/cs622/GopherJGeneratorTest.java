@@ -21,7 +21,7 @@ class GopherJGeneratorTest {
 
 		doc.parse(json);
 
-		gen.generate(doc.getComponents());
+		gen.generate(doc);
 	}
 
 }

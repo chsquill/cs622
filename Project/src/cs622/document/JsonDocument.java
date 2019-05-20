@@ -4,14 +4,24 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-import cs622.field.ArrayComponent;
-import cs622.field.Component;
-import cs622.field.DoubleComponent;
-import cs622.field.IntegerComponent;
-import cs622.field.LongComponent;
-import cs622.field.StringComponent;
+import cs622.component.ArrayComponent;
+import cs622.component.Component;
+import cs622.component.DoubleComponent;
+import cs622.component.IntegerComponent;
+import cs622.component.LongComponent;
+import cs622.component.StringComponent;
 
 public class JsonDocument extends Document {
+
+	private String wadlUrl;
+
+	public JsonDocument() {
+		this("No WADL Url specified.");
+	}
+
+	public JsonDocument(String wadlUrl) {
+		this.setWadlUrl(wadlUrl);
+	}
 
 	@Override
 	public void parse(String json) {
@@ -61,6 +71,14 @@ public class JsonDocument extends Document {
 
 		setComponents(comps.toArray(new Component[comps.size()]));
 
+	}
+
+	public String getWadlUrl() {
+		return wadlUrl;
+	}
+
+	public void setWadlUrl(String wadlUrl) {
+		this.wadlUrl = wadlUrl;
 	}
 
 }

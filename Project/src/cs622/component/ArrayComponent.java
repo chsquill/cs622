@@ -1,4 +1,4 @@
-package cs622.field;
+package cs622.component;
 
 import java.util.ArrayList;
 

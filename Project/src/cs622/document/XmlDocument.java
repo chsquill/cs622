@@ -10,7 +10,8 @@ public class XmlDocument extends Document {
 
 	@Override
 	public void parse(String input) {
-		// TODO Auto-generated method stub
+
+		// TODO generate components from XML
 
 	}
 

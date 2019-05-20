@@ -1,4 +1,4 @@
-package cs622.field;
+package cs622.component;
 
 public abstract class Component {
 
